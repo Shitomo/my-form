@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>01 Draggable | jQuery UI / Drag and Drop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- jQuery UI 1.12.1 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="js/form.js"></script>
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+</head>
+<body>
+    <div class="header"></div>
+    <div class="form">
+      <div class="form_title">
+        <h1 class="title">Form Title</h1>
+      </div>
+      <div id="type_menu">
+            <div class="form_row">
+              <div class="actions">
+                <a class="btn pull-right action_link delete" href="#">&times;</a>
+                <a class="btn pull-right action_link edit" href="#">&#9998;</a>
+              </div>
+              <div class="label">設問文</div>
+              <div class="detail" style="display: none;">
+                <input type="text">
+              </div>
+            </div>
+              <div class="form_row">
+                <div class="actions">
+                  <a class="btn pull-right action_link delete" href="#">&times;</a>
+                  <a class="btn pull-right action_link edit" href="#">&#9998;</a>
+                </div>
+                <div class="label">設問文</div>
+                <div class="detail" style="display: none;">
+                  <input type="text" >
+                </div>
+              </div>
+                <div class="form_row">
+                  <div class="actions">
+                    <a class="btn pull-right action_link delete" href="#">&times;</a>
+                    <a class="btn pull-right action_link edit" href="#">&#9998;</a>
+                  </div>
+                  <div class="label">設問文</div>
+                </div>
+    </div>  
+      <div id="form_rows">
+        <div class="form_row">
+          <div class="actions">
+            <a class="btn pull-right action_link delete" href="#">&times;</a>
+            <a class="btn pull-right action_link edit" href="#">&#9998;</a>
+          </div>
+          <div class="label">自由記述</div>
+        </div>
+      </div>
+        <a href="#" class="btn btn--green ml2 add">Add an Item</a>
+    </div>
+
+
+</body>
+</html>
+<!---フォームが追加された時，並び順のリストも更新される．並び順が更新された時，フォームのリストも更新される-->

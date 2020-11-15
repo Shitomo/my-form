@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>01 Draggable | jQuery UI / Drag and Drop</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+</head>
+<body>
+<style>
+  body {
+    margin: 20px;
+  }
+  #item {
+    padding: 10px;
+    width: 80px;
+    height: 80px;
+    background-color: #2e6da4;
+    color: #FFFFFF;
+  }
+  #item:hover {
+    cursor: pointer;
+  }
+</style>
+
+    <div id="box">
+        <div id="box_1" class="card bg-primary text whit my-1">
+            <div class="card-body">id:box_1</div>
+        </div>
+        <div id="box_2" class="card bg-primary text whit my-1">
+            <div class="card-body">id:box_2</div>
+        </div>
+        <div id="box_3" class="card bg-primary text whit my-1">
+            <div class="card-body">id:box_3</div>
+        </div>
+        <div id="box_4" class="card bg-primary text whit my-1">
+            <div class="card-body">id:box_4</div>
+        </div>
+        <div id="box_5" class="card bg-primary text whit my-1">
+            <div class="card-body">id:box_5</div>
+        </div>
+    </div>
+
+    <div class="card mt-5">
+        <div id="result_box" class="card-body">
+        </div>
+    </div>
+    <div id="drag_container">
+		<div id="item">
+			<p>ドラッグしてください</p>
+		</div>	
+    </div>
+    <div id="drop_area">
+		<div id="item">
+			<p>ドラッグしてください</p>
+		</div>	
+	</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- jQuery UI 1.12.1 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script type="text/javascript">
+    function put_result(ui) {
+        $('#result_box').html("現在の要素のIDの順番は以下の通りです．</br />");
+        
+        $('#box').find('.card').each(function(index, element) {
+            var id = $(this).attr("id");
+            $('#result_box').append(id + "<br />");
+        });
+
+        if(ui) {
+            var dragged_id = ui.item[0].id;
+            $('#result_box').append("ドラッグされた要素のIDは" + draggend_id + "です<br />");
+        }
+    }   
+    $(function() {
+        put_result();
+        $('#box').sortable({
+            axis: "y",
+            "opacity": 0.5,
+            "update": function(event, ui) {
+                put_result(ui);
+            }
+        }); 
+    });
+    $(function() {
+			$('#item').draggable();
+    })
+    $(function() {
+    $('#item').draggable();
+    $('#drop_area').droppable({
+      activate: function(e,ui) {
+        $(this)
+          .find("p")
+          .html("ドラッグが開始されました");
+      },
+      over: function(e,ui) {
+        $(this)
+          .css('background', '#e0ffff')
+          .css('border', '2px solid #00bfff')
+          .find("p")
+          .html("ドロップエリアに入りました" );
+      },
+      out: function(e,ui) {
+        $(this)
+          .css('background', '#ffffe0')
+          .css('border', '2px solid #ffff00')
+          .find("p")
+          .html("ドロップエリアから外れました");
+      },
+      drop: function(e,ui) {
+        $(this)
+          .addClass("ui-state-highlight")
+          .css('background', '#fdf5e6')
+          .css('border', '2px solid #ffa07a')
+          .find( "p" )
+          .html( "ドロップされました" );
+      }
+    });
+  });
+    </script>
+
+</body>
+</html>
+<!---フォームが追加された時，並び順のリストも更新される．並び順が更新された時，フォームのリストも更新される-->

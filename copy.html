@@ -1,0 +1,9 @@
+入力するフィールド
+<input type="text" onMouseOut="incopy(this.form)" onMouseOver="incopy(this.form)" onkeydown="incopy(this.form)" onkeyup="incopy(this.form)" name="signup_username" id="signup_username" value="<?php bp_signup_username_value(); ?>"  class="w100" />
+コピーされるフィールド
+<input type="text" name="<?php bp_the_profile_field_input_name(); ?>" id="<?php bp_the_profile_field_input_name(); ?>" value="<?php bp_signup_username_value(); ?>"  class="w100" />
+<script type="text/javascript">
+    function incopy(frmObj){
+        frmObj.elements["field_1"].value=frmObj.elements["signup_username"].value;
+    }
+    </script>
